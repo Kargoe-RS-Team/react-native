@@ -157,7 +157,7 @@
    NSString *currentText = baseTextInputView.attributedText.string;
     BOOL hasFilteredText = ![currentText isEqualToString:attributedText.string];
  	 
-   if (isAttributedTextChanged) {	+    if (isAttributedTextChanged || hasFilteredText) {
+     if (isAttributedTextChanged || hasFilteredText) {
        baseTextInputView.attributedText = attributedText;	      
      }	 
    
