@@ -154,9 +154,13 @@
     baseTextInputView.reactBorderInsets = borderInsets;
     baseTextInputView.reactPaddingInsets = paddingInsets;
 
-    if (isAttributedTextChanged) {
-      baseTextInputView.attributedText = attributedText;
-    }
+   NSString *currentText = baseTextInputView.attributedText.string;
+    BOOL hasFilteredText = ![currentText isEqualToString:attributedText.string];
+ 	 
+   if (isAttributedTextChanged) {	+    if (isAttributedTextChanged || hasFilteredText) {
+       baseTextInputView.attributedText = attributedText;	      
+     }	 
+   
   }];
 }
 
